@@ -5,14 +5,21 @@ st.set_page_config(page_title="Hello IFO-5940", layout="centered")
 
 st.title("👋 Hello from INFO-5940")
 
-if "messages" not in st.session_state:
+# Read knowledge base from data/important_knowledge.txt
+with open('data/important_knowledge.txt', 'r') as file:
+     knowledge_base = file.read()
+
+if "messages" not in st.session_state: # Store the main states that the bot can be in, set the system knowledge, the user main request, and the opening assistant's line
     st.session_state["messages"] = [{"role": "system", "content": "You're a knowledgeable cook"},
+                                    {"role": "user", "content": "I want you to answer questions based on this knowledge base: " + knowledge_base},
                                     {"role": "assistant", "content": "Hello! I'm here to help you!"}]
 # st.session_state["messages"].append([{"role": "assistant, "content": "Howdy!"}])     
 
-for msg in st.session_state.messages:
-    if msg['role'] != 'system':
+for msg in st.session_state.messages: # Run through the items in st.session_state, if they aren't system (don't write the contents in the system) and the user's content, then write according to the bot's knowledge
+    if msg['role'] != 'system' and msg['content'] != "I want you to answer questions based on this knowledge base: " + knowledge_base: 
         st.chat_message(msg['role']).write(msg['content'])
+
+# and  msg['content'] != "I want you to answer questions based on this knowledge base" + knowledge_base:
 
 # if globals().get('page_title') is None:
 #     page_title = "👋 Hello from INFO-5940!"
@@ -31,18 +38,18 @@ for msg in st.session_state.messages:
 # Way to run streamlit
 # streamlit run streamlit_sample.py
 
-if prompt := st.chat_input():
-    client = OpenAI()
+if prompt := st.chat_input(): # Create the chat interface
+    client = OpenAI() # Call API
 
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        stream = client.chat.completions.create(model="openai.gpt-4o",
+        stream = client.chat.completions.create(model="openai.gpt-4o", # Specify model
                                             #    messages = [{"role": "system", "content": "You're a knowledgeable cook."},
                                             #                {"role": "assistant", "content": "Hello! I'm here to help you!"}],
-                                               messages=st.session_state.messages,
-                                               stream=True)
+                                               messages=st.session_state.messages, # Print messages according to what's set in the st.session_state.messages
+                                               stream=True) # The API sends back small chunks (tokens) as soon as they’re generated, seems like typing
         response = st.write_stream(stream)
     
     # st.write(response)
