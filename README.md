@@ -1,92 +1,175 @@
-# INFO 5940 
-Welcome to the INFO 5940 repository. You will complete your work using [**GitHub Codespaces**](#about-github-codespaces) and save your progress in your own GitHub repository. This guide will walk you through setting up the development environment and running the test notebook.  
+Readme · MD
+Copy
 
-## Getting Started 
+# INFO 5940 — Retrieval-Augmented Generation (RAG) Application
 
-### Step 1: Fork this repository 
-1. Click the **Fork** button (top right of this page).
-2. This will create a copy of the repo under **your own GitHub account**.
+Welcome to the **INFO 5940 Assignment 1** repository.  
+This project implements a **Retrieval-Augmented Generation (RAG)** system using **Streamlit**, **LangChain**, **Chroma**, and **OpenAI**.  
+It allows users to upload `.txt` and `.pdf` files and interact with their content through a conversational chat interface.
 
-Forking creates a personal copy of the repo under **your** GitHub account.  
-- You can commit, push, and experiment freely.  
-- Your work stays separate from the official class materials.
+---
 
-### Step 2: Open your forked repo Codespace
-1. Go to **your forked repo**.
-2. Click the green **Code** button and switch to the **Codespaces** tab.  
-3. Select **Create Codespace**.
-4. Wait a few minutes for the environment to finish setting up.
+## Getting Started
 
-### Step 3: Verify your environment 
-Once the Codespace is ready: 
-1. If you are in `<your-file-name>.ipynb` in your codespace.
-2. Install the Python 3.11.13 Kernel.  In the top-right corner, click **Select Kernel**.
-    1. If **Install/Enable suggested extensions Python + Jupyter** appears, select it, and wait for the install to finish before moving on to the next step.
-    2. Select **Python Environments** choose **Python 3.11.13 (first option)**.
-3. Run the code block to check your setup. 
+### Step 1 – Open Your Forked Repository
+1. Fork the class repository to your GitHub account.
+2. Click the green **Code** button → **Codespaces** tab → **Create Codespace**.
+3. Wait for the environment to finish building (Python 3.11.13).
 
-## About GitHub Codespaces
+### Step 2 – Verify Your Environment
+1. Ensure the **Python 3.11** kernel is selected.
+2. The `.devcontainer` will automatically install required dependencies.
 
-[Codespaces](https://docs.github.com/en/codespaces) is a complete software development and execution environment, running in the cloud, with its primary interface being a VSCode instance running in your browser.
+### Step 3 – Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Codespaces is not free, but their per-month [free quota](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces#free-quota) is generous.  Codespaces is free under the [GitHub Student Developer Pack](https://education.github.com/pack#github-codespaces).
+### Step 4 – Run the Streamlit App
 
-### Codespaces Tips
+In the terminal, run:
 
-* Codespaces keep running even when you close your browser (but will time out and stop after a while)
-* Unless you're on a free plan, or within your free quota, costs acrue while the codespace is running, whether or not you have it open in your browser or are working on it
-* You can control when it's running, and the space it takes up.  Check out [GitHub's codespaces lifecycle documentation](https://docs.github.com/en/codespaces/about-codespaces/understanding-the-codespace-lifecycle)
+```bash
+streamlit run chat_with_pdf.py
+```
 
-## Sync Updates 
-To make sure your personal forked repository stays up to date with the original class repository, please follow these steps:
-1. Open your forked repo.
-2. At the top of the page, you should see a banner or menu option that shows whether your fork is behind the original repo.
-3. Click the **Sync fork** button.
-4. In the dropdown, choose **Update branch** to pull the latest changes from the original repo into your fork.
+When prompted, click **Open in Browser** to view the app interface.
 
-Optionally, you can also follow these steps to create a new branch on your fork:
-1. Open your **forked repository** on GitHub.  
-2. At the top of the page, next to the branch dropdown, click the **Branches** button.  
-3. In the **Branches** view, click the green **New Branch** button.  
-4. In the popup window, enter a branch name.  
-   - You can use any name you like, but it’s recommended to match the branch name used in class for better organization.  
-5. Under **Branch source**, select:  
-   - **Repository:** `AyhamB/INFO-5940-Codespace`  
-   - **Branch:** choose the branch you want to sync from (e.g., `streamlit`).  
-6. Click the green **Create New Branch** button.  
-7. Verify that you’re now back in **your fork**, on the new branch you just created.  
-8. Click the **Code** button and create a new Codespace (if you don’t already have one).  
-   - Make sure the Codespace is created from the **current branch**.
-  
-## Running a Streamlit App on Codespaces  
-Follow these steps to launch and view your Streamlit app in GitHub Codespaces:
-1. **Open the terminal** inside your Codespace.
-2. Run the command:  
-   ```bash
-   streamlit run your-file-name.py
-   ```  
-   **(Replace `your-file-name.py` with the actual name of your Streamlit app file, e.g., `hello_app.py`.)**
-3. After pressing **Enter**, a popup should appear in the bottom-right corner of Codespace editor.  
-   - Click **“Open in Browser”** to view your app.  
+---
 
-   ⚠️ *If you miss the popup:*  
-   - Press **Ctrl + C** in the terminal to stop the app.  
-   - Rerun the command from step 2 — the popup should appear again.
-4. A new browser tab will open, showing the interface of your Streamlit app.
-5. **Make changes to your code** in the Codespace editor.  
-   - Refresh the browser tab to see the updated version of your app.  
+## Application Overview
 
-## Setting Your API Key in GH Codespaces
-You will receive an individual API Key for class assignments. To prevent accidental exposure online, please follow the steps below to securely insert your key in the terminal.
-1. **Open the terminal** inside your Codespace.
-2. Run the command to temporarily set your API Key for this session:  
-   ```bash
-   export API_KEY="your_actual_API_KEY"
-   ```
-3. If you want to run the Streamlit app and set up the key at the same time, run both commands together:
-   ```bash
-   API_KEY="your_actual_API_KEY" streamlit run your-file-name.py
-   ```
+### What the Application Does
+
+1. Upload one or more `.txt` and `.pdf` files.
+2. Extract and chunk text automatically for efficient retrieval.
+3. Generate vector embeddings using OpenAI's `text-embedding-3-large` model.
+4. Store and retrieve document chunks from a Chroma vector database.
+5. Ask questions through a chat interface powered by GPT-4o.
+6. Receive concise, context-grounded answers drawn directly from the uploaded materials.
+
+### Application Features
+
+- **Multi-file Upload**: supports `.txt`, `.pdf`, and `.md` documents.
+- **Automatic PDF Parsing**: extracts text from PDF pages using PyPDF.
+- **Document Chunking**: splits text into ~200-character chunks (no overlap).
+- **Vector Embeddings**: uses OpenAI `text-embedding-3-large` model.
+- **Semantic Retrieval**: performs similarity search with Chroma (k = 20).
+- **Conversational Chat**: GPT-4o provides concise, grounded answers.
+- **Multi-Turn Memory**: chat history stored in `st.session_state`.
+- **Streaming Responses**: messages appear in real time in the UI.
+
+---
+
+## Environment Variables
+
+The following variables are pre-configured in `.devcontainer.json`:
+
+```
+OPENAI_API_KEY=<your key>
+OPENAI_BASE_URL=https://api.ai.it.cornell.edu
+```
+
+If running locally, export them manually before launching the app:
+
+```bash
+export OPENAI_API_KEY="your_key_here"
+export OPENAI_BASE_URL="https://api.ai.it.cornell.edu"
+```
+
+---
+
+## Configuration Changes
+
+### Updates Made to the Provided Codespace Setup
+
+**Added dependencies to `requirements.txt`:**
+
+```
+chromadb>=0.5.5          # Vector database for storing embeddings
+langchain-text-splitters # For document chunking
+pypdf                    # For PDF reading and extraction
+```
+
+- **`chromadb>=0.5.5`** – installs Chroma (v 0.5.5 or higher) for vector storage and retrieval.
+- **`langchain-text-splitters`** – provides utilities to split large documents into smaller chunks for RAG.
+- **`pypdf`** – adds PDF parsing capability to handle uploaded `.pdf` files.
+
+**Added Python import in main script:**
+
+```python
+from pypdf import PdfReader  # PDF reader
+```
+
+**Encoded API Key securely inside Codespace:**
+
+```
+${localEnv:OPENAI_API_KEY}
+```
+
+Stores the OpenAI API key as a secret variable so it is not exposed in source control.
+
+**Optional reinstall command used to fix dependency conflicts:**
+
+```bash
+pip install --upgrade --force-reinstall numpy pandas streamlit --break-system-packages
+```
+
+### Summary of Changes:
+
+- Enabled PDF parsing (`pypdf`).
+- Added text chunking (`langchain-text-splitters`).
+- Added vector database support (`chromadb`).
+- Secured API key storage in Codespace environment.
+
+---
+
+## How to Use
+
+1. Upload one or more `.txt` or `.pdf` files.
+2. Wait for "Documents processed successfully!" to appear.
+3. Type a question (e.g., "Summarize this document.").
+4. The assistant retrieves relevant chunks and answers based on your files.
+5. Continue chatting — conversation history is preserved.
+
+---
 
 ## Troubleshooting
-- The Jupyter extension should install automatically. If you still cannot select a Python kernel on Jupyter Notebook: Go to the left sidebar >> **Extensions** >> search for **Jupyter** >> reload window (or reinstall it).   
+
+**If the Streamlit app does not open automatically:**
+
+```bash
+streamlit run chat_with_pdf.py
+```
+
+**If packages are missing:**
+
+```bash
+pip install -r requirements.txt
+```
+
+**To verify your API key:**
+
+```bash
+echo $OPENAI_API_KEY
+```
+
+---
+
+## Reference Log (ref-log.md)
+
+### External Tools and Libraries:
+
+- **Streamlit** — web UI framework.
+- **LangChain / LangChain-OpenAI / LangChain-Text-Splitters** — RAG pipeline components.
+- **Chroma** — vector database for semantic search.
+- **PyPDF** — PDF text extraction.
+- **OpenAI API (Cornell proxy)** — embeddings and GPT-4o chat model.
+
+### GenAI Usage:
+
+- **Tool Used**: ChatGPT (GPT-5)
+- **Purpose**: Helped format and debug Streamlit + LangChain code and draft documentation.
+- **Rationale**: Used only for clarity and structure; final implementation and testing performed manually.
+
+---
