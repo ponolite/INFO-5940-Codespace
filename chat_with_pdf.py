@@ -70,6 +70,37 @@ if "processed_files" not in st.session_state:
 # HELPER FUNCTIONS
 # ============================================================================
 
+def read_file_to_text(uploaded_file) -> str:
+    """
+    Read uploaded file and convert to plain text.
+    
+    Handles three file types:
+    - .txt: Plain text files
+    - .md: Markdown files (treated as text)
+    - .pdf: PDF files (extracts text from all pages)
+    
+    Args:
+        uploaded_file: Streamlit UploadedFile object
+        
+    Returns:
+        str: The text content of the file
+    """
+    # Get raw bytes from uploaded file
+    data = uploaded_file.getvalue()
+    filename = uploaded_file.name.lower()
+    
+    # Handle PDF files differently - need special parsing
+    if filename.endswith(".pdf"):
+        # Create PDF reader from bytes
+        reader = PdfReader(io.BytesIO(data))
+        # Extract text from each page and join with newlines
+        text = "\n".join((page.extract_text() or "") for page in reader.pages)
+        return text
+    else:
+        # For .txt and .md files, just decode bytes to UTF-8 text
+        # errors="ignore" prevents crashes on weird characters
+        return data.decode("utf-8", errors="ignore")
+
 def build_vectorstore_from_files(files: List) -> Chroma:
     """
     Build a vector store from uploaded files.
