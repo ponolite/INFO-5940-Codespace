@@ -142,7 +142,7 @@ echo $OPENAI_API_KEY
 ### External Tools and Libraries:
 
 - **Streamlit** — web UI framework.
-- **LangChain / LangChain-OpenAI / LangChain-Text-Splitters** — RAG pipeline components.
+- **LangChain / LangChain-OpenAI / LangChain-Text-Splitters** — RAG structure & components.
 - **Chroma** — vector database for semantic search.
 - **PyPDF** — PDF text extraction.
 - **OpenAI API (Cornell proxy)** — embeddings and GPT-4o chat model.
