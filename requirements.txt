@@ -12,6 +12,8 @@ langchain-community==0.3.31
 langchain==0.3.27
 langchain_core==0.3.79
 langchain-openai==0.3.35
+chromadb>=0.5.5
+langchain-text-splitters
 
 cfn_flip
 cfn-lint
