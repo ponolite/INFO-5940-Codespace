@@ -1,13 +1,8 @@
-Readme · MD
-Copy
-
 # INFO 5940 — Retrieval-Augmented Generation (RAG) Application
 
 Welcome to the **INFO 5940 Assignment 1** repository.  
 This project implements a **Retrieval-Augmented Generation (RAG)** system using **Streamlit**, **LangChain**, **Chroma**, and **OpenAI**.  
 It allows users to upload `.txt` and `.pdf` files and interact with their content through a conversational chat interface.
-
----
 
 ## Getting Started
 
@@ -35,8 +30,6 @@ streamlit run chat_with_pdf.py
 
 When prompted, click **Open in Browser** to view the app interface.
 
----
-
 ## Application Overview
 
 ### What the Application Does
@@ -59,8 +52,6 @@ When prompted, click **Open in Browser** to view the app interface.
 - **Multi-Turn Memory**: chat history stored in `st.session_state`.
 - **Streaming Responses**: messages appear in real time in the UI.
 
----
-
 ## Environment Variables
 
 The following variables are pre-configured in `.devcontainer.json`:
@@ -76,8 +67,6 @@ If running locally, export them manually before launching the app:
 export OPENAI_API_KEY="your_key_here"
 export OPENAI_BASE_URL="https://api.ai.it.cornell.edu"
 ```
-
----
 
 ## Configuration Changes
 
@@ -122,8 +111,6 @@ pip install --upgrade --force-reinstall numpy pandas streamlit --break-system-pa
 - Added vector database support (`chromadb`).
 - Secured API key storage in Codespace environment.
 
----
-
 ## How to Use
 
 1. Upload one or more `.txt` or `.pdf` files.
@@ -131,8 +118,6 @@ pip install --upgrade --force-reinstall numpy pandas streamlit --break-system-pa
 3. Type a question (e.g., "Summarize this document.").
 4. The assistant retrieves relevant chunks and answers based on your files.
 5. Continue chatting — conversation history is preserved.
-
----
 
 ## Troubleshooting
 
@@ -153,8 +138,6 @@ pip install -r requirements.txt
 ```bash
 echo $OPENAI_API_KEY
 ```
-
----
 
 ## Reference Log (ref-log.md)
 
