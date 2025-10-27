@@ -1,17 +1,15 @@
 # Reference Log
 
-This document tracks all external sources, tools, libraries, and GenAI usage for the INFO 5940 RAG Application assignment.
-
+This `.md` file documents all external sources, tools, libraries, and GenAI usage for the INFO 5940 RAG Application Assignment 1.
 
 ## External Tools and Libraries
 
 ### Core Frameworks and Libraries
 
 #### Streamlit
-- **Purpose**: Web application framework for building the interactive chat interface
+- **Purpose**: Web application structural framework to build the interactive conversational AI interface
 - **Documentation**: https://docs.streamlit.io/
-- **Version Used**: Latest stable version
-- **Usage**: Built the entire user interface including file upload, chat display, and session state management
+- **Usage**: Enable the building of the UI, including file file upload, chat display, and session state operation.
 
 #### LangChain
 - **Purpose**: Framework for building LLM-powered applications
