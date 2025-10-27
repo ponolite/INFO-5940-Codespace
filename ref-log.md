@@ -63,8 +63,8 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 ### ChatGPT (GPT-4/GPT-5)
 
 #### Session 1: Initial Code Structure
-- **Date**: [Insert date]
-- **Purpose**: Generated boilerplate code for Streamlit app with file upload functionality
+- **Date**: 10/25/2025
+- **Purpose**: Generated re-usable, setup code for Streamlit app with file upload functionality
 - **Rationale**: Accelerated initial setup and ensured best practices for Streamlit session state management
 - **Specific Usage**:
   - Created basic Streamlit app structure
@@ -73,7 +73,7 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 - **What Was Modified**: Adapted the generated code to work with Cornell's OpenAI API proxy and adjusted chunking parameters
 
 #### Session 2: RAG Pipeline Implementation
-- **Date**: [Insert date]
+- **Date**: 10/25/2025
 - **Purpose**: Debugged LangChain integration with Chroma vector store
 - **Rationale**: Resolved dependency conflicts and API compatibility issues between LangChain versions
 - **Specific Usage**:
@@ -83,7 +83,7 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 - **What Was Modified**: Adjusted retrieval parameters (k=20) and added error handling for empty documents
 
 #### Session 3: PDF Processing
-- **Date**: [Insert date]
+- **Date**: 10/26/2025
 - **Purpose**: Implemented PDF text extraction using PyPDF
 - **Rationale**: Needed efficient way to handle multi-page PDF uploads
 - **Specific Usage**:
@@ -92,7 +92,7 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 - **What Was Modified**: Added file type validation and combined text extraction with existing .txt file handling
 
 #### Session 4: Documentation
-- **Date**: [Insert date]
+- **Date**: 10/26/2025
 - **Purpose**: Formatted and structured README.md and ref-log.md
 - **Rationale**: Ensured documentation matched INFO 5940 assignment style and formatting requirements
 - **Specific Usage**:
@@ -101,41 +101,17 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
   - Formatted code blocks and configuration examples
 - **What Was Modified**: Customized content to reflect actual implementation details and added Cornell-specific information
 
-
-## Development Tools
-
-### GitHub Codespaces
-- **Purpose**: Cloud-based development environment
-- **Configuration**: Pre-configured with Python 3.11.13 via `.devcontainer.json`
-- **Usage**: Primary development and testing environment
-
-### VS Code
-- **Purpose**: Code editor (via Codespaces)
-- **Extensions Used**: Python, Pylance (automatically installed)
-
-
-
 ## Testing and Verification
 
 ### Manual Testing
-- Uploaded various `.txt` and `.pdf` files to verify document processing
-- Tested multi-turn conversations to ensure chat history persistence
-- Verified retrieval accuracy by asking specific questions about uploaded content
-- Tested error handling with empty files and unsupported formats
-
-### API Testing
-- Verified OpenAI API connectivity through Cornell proxy
-- Tested embedding generation with sample documents
-- Confirmed GPT-4o response streaming functionality
-
-
+- Dropped and uploaded various `.txt` and `.pdf` files to ensure successful document processing
+- Tested multi-turn conversations to ensure chatability
+- Ensured retrieval accuracy by posing specific questions about uploaded content
 
 ## Notes
 
 - All external libraries were installed via `pip` using `requirements.txt`
 - OpenAI API key stored securely as environment variable (not committed to repository)
-- No copyrighted or proprietary code was used beyond standard open-source libraries
 - All GenAI-generated code was reviewed, tested, and modified to fit project requirements
-
 
 **Last Updated**: [10/27/2025]
