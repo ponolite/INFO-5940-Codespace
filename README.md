@@ -75,10 +75,12 @@ export OPENAI_BASE_URL="https://api.ai.it.cornell.edu"
 **Added dependencies to `requirements.txt`:**
 
 ```
+numpy>=1.26,<3           # Fast math operations, used by pandas and embeddings
 chromadb>=0.5.5          # Vector database for storing embeddings
 langchain-text-splitters # For document chunking
 ```
 
+- **`numpy>=1.26,<3`** – installs NumPy, version 1.26 or higher, but below 3.0, for faster embeddings and math operations.
 - **`chromadb>=0.5.5`** – installs Chroma (v 0.5.5 or higher) for vector storage and retrieval.
 - **`langchain-text-splitters`** – enables the application to split large documents into smaller chunks for RAG.
 
