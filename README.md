@@ -80,7 +80,7 @@ chromadb>=0.5.5          # Vector database for storing embeddings
 langchain-text-splitters # For document chunking
 ```
 
-- **`numpy>=1.26,<3`** – installs NumPy, version 1.26 or higher, but below 3.0, for faster embeddings and math operations.
+- **`numpy>=1.26,<3`** – installs NumPy, version 1.26 or higher, but below 3.0, for faster embeddings and math operations; further, adding numpy to requirements.txt ensures it’s installed in a compatible version before dependent libraries like pandas, which prevents version mismatches that cause 'binary incompatibility errors'.
 - **`chromadb>=0.5.5`** – installs Chroma (v 0.5.5 or higher) for vector storage and retrieval.
 - **`langchain-text-splitters`** – enables the application to split large documents into smaller chunks for RAG.
 
