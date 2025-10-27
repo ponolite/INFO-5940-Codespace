@@ -96,7 +96,7 @@ from pypdf import PdfReader  # PDF reader
 ${localEnv:OPENAI_API_KEY}
 ```
 
-Stores the OpenAI API key as a secret variable (and call it within `in .devcontainer`) so it is not exposed in source control.
+Stores the OpenAI API key as a secret variable (and call it within `.devcontainer`) so it is not exposed in source control.
 
 **Optional reinstall command used to fix dependency conflicts:**
 
