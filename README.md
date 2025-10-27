@@ -96,7 +96,7 @@ from pypdf import PdfReader  # PDF reader
 ${localEnv:OPENAI_API_KEY}
 ```
 
-Stores the OpenAI API key as a secret variable so it is not exposed in source control.
+Stores the OpenAI API key as a secret variable (and call it within `in .devcontainer`) so it is not exposed in source control.
 
 **Optional reinstall command used to fix dependency conflicts:**
 
@@ -154,5 +154,3 @@ echo $OPENAI_API_KEY
 - **Tool Used**: ChatGPT (GPT-5)
 - **Purpose**: Helped format and debug Streamlit + LangChain code and draft documentation.
 - **Rationale**: Used only for clarity and structure; final implementation and testing performed manually.
-
----

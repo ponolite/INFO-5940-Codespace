@@ -139,6 +139,5 @@ This document tracks all external sources, tools, libraries, and GenAI usage for
 - No copyrighted or proprietary code was used beyond standard open-source libraries
 - All GenAI-generated code was reviewed, tested, and modified to fit project requirements
 
----
 
 **Last Updated**: [10/27/2025]
