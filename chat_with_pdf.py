@@ -187,7 +187,7 @@ def retrieve_context(vectorstore: Chroma, query: str, k: int = 20) -> List[Docum
     )
     
     # Perform the search and return relevant documents from similarity search
-    return vectorstore.similarity_search(query, k=k)
+    return retriever.invoke(query)  # LCEL
 
 def format_context(docs: List[Document]) -> str:
     """
