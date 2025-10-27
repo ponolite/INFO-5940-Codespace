@@ -280,7 +280,7 @@ if question and st.session_state["vectorstore"]:
     with st.chat_message("assistant"):
         # Stream the response for better UX (shows text as it's generated)
         stream = client.chat.completions.create(
-            model="openai.gpt-4o",  # Use GPT-3.5 Turbo model
+            model="openai.gpt-4o",  # Use GPT-4o model
             messages=[
                 {"role": "system", "content": system_prompt},  # System prompt with context
                 {"role": "user", "content": question}          # User's question

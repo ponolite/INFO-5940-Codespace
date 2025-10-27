@@ -64,23 +64,21 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 
 #### Session 1: Initial Code Structure
 - **Date**: 10/25/2025
-- **Purpose**: Generated re-usable, setup code for Streamlit app with file upload functionality
-- **Rationale**: Accelerated initial setup and ensured best practices for Streamlit session state management
+- **Purpose**: Generated re-usable, setup code for Streamlit app with relevant help functions (e.g., )
+- **Rationale**: Quicken initial setup and ensured best programming practices for Streamlit operation
 - **Specific Usage**:
-  - Created basic Streamlit app structure
-  - Implemented file uploader with multiple file type support
-  - Set up session state for chat history
-- **What Was Modified**: Adapted the generated code to work with Cornell's OpenAI API proxy and adjusted chunking parameters
+  - Implemented the syntax for file uploader with multiple file type support
+  - Set up helper functions (e.g., read_file_to_text, build_vectorstore_from_files, retrieve_context) based on previous lecture notes to modularize the coding process
+  - Provided dependency references for functions relying on LangChain, Chroma, and OpenAI embeddings.
+- **What Was Modified**: Adapted the generated code to read files as well as format retrieved documents into a readable context string. Implement codes that import LangChain utilities.
 
-#### Session 2: RAG Pipeline Implementation
+#### Session 2: De-Bugging Existing Problems
 - **Date**: 10/25/2025
-- **Purpose**: Debugged LangChain integration with Chroma vector store
-- **Rationale**: Resolved dependency conflicts and API compatibility issues between LangChain versions
+- **Purpose**: Debugged Text Retrieval Errors
+- **Rationale**: Resolved 'binary incompatibility errors' between numpy and pandas as well as the prefix `openai.` under `model="openai.gpt-4o"`
 - **Specific Usage**:
-  - Helped troubleshoot import errors with `langchain-chroma`
-  - Suggested proper initialization of OpenAI embeddings with custom base URL
-  - Provided example code for document chunking with `CharacterTextSplitter`
-- **What Was Modified**: Adjusted retrieval parameters (k=20) and added error handling for empty documents
+  - Helped troubleshoot text retrieval errors that prevent the application from answering questions
+- **What Was Modified**: Added `numpy` to requirements.txt as well as `openai.` pre-fix
 
 #### Session 3: PDF Processing
 - **Date**: 10/26/2025
@@ -93,13 +91,13 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 
 #### Session 4: Documentation
 - **Date**: 10/26/2025
-- **Purpose**: Formatted and structured README.md and ref-log.md
+- **Purpose**: Generated the correct syntax to organize textual input in README.md and ref-log.md
 - **Rationale**: Ensured documentation matched INFO 5940 assignment style and formatting requirements
 - **Specific Usage**:
   - Helped organize README sections with clear numbered steps
   - Drafted troubleshooting section
   - Formatted code blocks and configuration examples
-- **What Was Modified**: Customized content to reflect actual implementation details and added Cornell-specific information
+- **What Was Modified**: Customized content to reflect actual implementation details
 
 ## Testing and Verification
 
