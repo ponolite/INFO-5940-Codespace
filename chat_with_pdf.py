@@ -2,11 +2,7 @@
 # RAG (Retrieval-Augmented Generation) Application with Streamlit
 # ============================================================================
 # This app allows users to upload documents (.txt, .md, .pdf) and ask questions
-# about their content. It uses:
-# 1. Document chunking (breaking large docs into smaller pieces)
-# 2. Embeddings (converting text to numerical vectors)
-# 3. Vector database (Chroma - for fast semantic search)
-# 4. LLM (GPT-4o - for generating answers based on retrieved context)
+# about their content. 
 # ============================================================================
 
 import streamlit as st  # Web app framework
@@ -23,7 +19,7 @@ from langchain_openai import OpenAIEmbeddings  # Converts text to vector embeddi
 from langchain.vectorstores import Chroma  # Vector database for storing and searching embeddings
 
 # ============================================================================
-# SETUP: Configure API access for both OpenAI client and LangChain
+# SETUP: Configure API access for both OpenAI client
 # ============================================================================
 
 # Direct OpenAI client for chat completions (the actual chat interface)
@@ -38,7 +34,7 @@ client = OpenAI(
 
 st.title("📝 File Q&A with RAG")
 
-# File uploader widget - allows multiple files of different types
+# File uploader widget: allows multiple files of different types
 uploaded_files = st.file_uploader(
     "Upload article(s)", 
     type=("txt", "md", "pdf"),  # Supported file types
@@ -57,7 +53,7 @@ if "messages" not in st.session_state:
         {"role": "assistant", "content": "Upload documents and ask me anything about them!"}
     ]
 
-# Vector store - contains all embedded document chunks (this is our "knowledge base")
+# Vector store: contains all embedded document chunks (this is our "knowledge base")
 if "vectorstore" not in st.session_state:
     st.session_state["vectorstore"] = None
 
@@ -141,7 +137,7 @@ def build_vectorstore_from_files(files: List) -> Chroma:
         return None
     
     # Step 2: Split documents into smaller chunks
-    # Why? Large documents don't fit in LLM context windows, and smaller
+    # Large documents don't fit in LLM context windows, and smaller
     # chunks give more precise retrieval
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=200,      # Each chunk ~200 characters
@@ -249,7 +245,7 @@ question = st.chat_input(
 # ============================================================================
 # RAG QUERY PROCESSING
 # ============================================================================
-# This is where the RAG magic happens! When user asks a question:
+# When user asks a question:
 # 1. Retrieve relevant chunks from vector store
 # 2. Build a context-aware prompt
 # 3. Generate an answer using the LLM
@@ -269,10 +265,10 @@ if question and st.session_state["vectorstore"]:
     # Step 3: AUGMENTATION - Build system prompt with retrieved context
     # This is the key to RAG: we give the LLM relevant context before asking the question
     system_prompt = (
-        "You are a helpful assistant for question-answering tasks.\n"
+        "You are a helpful assistant for tasks related to answering questions.\n"
         "Use ONLY the following context to answer the question.\n"  # Force grounding
         "If you don't know the answer from the context, say you don't know.\n"  # Prevent hallucination
-        "Keep your answer concise (3 sentences maximum).\n\n"
+        "Keep your answer concise.\n\n"
         f"Context:\n{context_text}"  # Insert retrieved chunks here
     )
     
