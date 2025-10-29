@@ -64,10 +64,9 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 
 #### Session 1: Initial Code Structure
 - **Date**: 10/25/2025
-- **Purpose**: Generated re-usable, setup code for Streamlit app with relevant help functions (e.g., )
-- **Rationale**: Quicken initial setup and ensured best programming practices for Streamlit operation
+- **Purpose**: Generated re-usable, setup code for Streamlit app with relevant help functions 
+- **Rationale**: Fastrack initial setup and ensured best programming practices for Streamlit operation
 - **Specific Usage**:
-  - Implemented the syntax for file uploader with multiple file type support
   - Set up helper functions (e.g., read_file_to_text, build_vectorstore_from_files, retrieve_context) based on previous lecture notes to modularize the coding process
   - Provided dependency references for functions relying on LangChain, Chroma, and OpenAI embeddings.
 - **What Was Modified**: Adapted the generated code to read files as well as format retrieved documents into a readable context string. Implement codes that import LangChain utilities.
@@ -112,4 +111,4 @@ This `.md` file documents all external sources, tools, libraries, and GenAI usag
 - OpenAI API key stored securely as environment variable (not committed to repository)
 - All GenAI-generated code was reviewed, tested, and modified to fit project requirements
 
-**Last Updated**: [10/27/2025]
+**Last Updated**: [10/28/2025]
