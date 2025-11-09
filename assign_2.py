@@ -180,6 +180,7 @@ Constraints and expected behavior:
 - You absolutely have to abide by user constraints: duration, budget (be as realistic as you can), interests (history, food) andd pacing (don’t try to over-schedule or add too many activities to a day).
 - You must organize nearby activities together to lessen travel duration. 
 - You must have enough detail in your itinerary for the Reviewer Agent to verify, review and validate it later. 
+- Be specific about the location of any places you recommended and provide at least 2 alternatives, e.g., must be clearer than something vague like "grab dinner at a food market" (specify which food market or places close to the attraction).
 
 Your itinerary MUST include:
 1. **Schedule Summary** (1 short paragraph): cities/areas visited, overall emotional vibe, key assumptions (e.g. “uses public transit”).
@@ -187,9 +188,9 @@ Your itinerary MUST include:
 3. **Day-by-Day Itinerary**:
    For EACH day:
    - **Day No. and City/Area**
-   - Morning: time interval and time duration, activity, location/neighborhood, short description
-   - Afternoon: time interval and time duration, activity, location/neighborhood, short description
-   - Evening: time interval and time duration, activity, location/neighborhood, short description
+   - Morning: time interval and time duration, activity, location/neighborhood, most optimal way to get there, short description
+   - Afternoon: time interval and time duration, activity, location/neighborhood, most optimal way to get there, short description
+   - Evening: time interval and time duration, activity, location/neighborhood, most optimal way to get there, short description
    - Logistics: how to travel between the mentioned main items (e.g., is it walk/metro/train or others)
    - Estimated daily budget (rough)
    - Notes (tickets recommended, alternative if weather is bad, etc.)
