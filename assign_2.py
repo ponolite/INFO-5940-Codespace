@@ -187,9 +187,9 @@ Your itinerary MUST include:
 3. **Day-by-Day Itinerary**:
    For EACH day:
    - **Day No. and City/Area**
-   - Morning: activity, location/neighborhood, time duration, short description
-   - Afternoon: activity, location/neighborhood, time duration, short description
-   - Evening: activity, location/neighborhood, time duration, short description
+   - Morning: time interval and time duration, activity, location/neighborhood, short description
+   - Afternoon: time interval and time duration, activity, location/neighborhood, short description
+   - Evening: time interval and time duration, activity, location/neighborhood, short description
    - Logistics: how to travel between the mentioned main items (e.g., is it walk/metro/train or others)
    - Estimated daily budget (rough)
    - Notes (tickets recommended, alternative if weather is bad, etc.)
